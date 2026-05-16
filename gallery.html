@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthur Anonymous | Gallery</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="gallery-page">
+
+    <a href="index.html" class="back-link">← Back</a>
+
+    <main class="gallery-container">
+      <img id="gallery-image" src="" alt="Artwork">
+      <p id="gallery-title"></p>
+    </main>
+
+    <script>
+      const artworks = [
+  { src: "images/carving1.jpg", title: "Smile" },
+  { src: "images/carving2.jpg", title: "Pan" },
+  { src: "images/carving3.jpg", title: "Mr. Nubz" },
+  { src: "images/carving4.jpg", title: "Santa" },
+  { src: "images/carving5.jpg", title: "Puppet Heads (Work in Progress)" },
+  { src: "images/carving6.jpg", title: "Odin" },
+  { src: "images/carving7.jpg", title: "Skelton" },
+  { src: "images/carving8.jpg", title: "Inanna" },
+  { src: "images/carving9.jpg", title: "Mithras" },
+  { src: "images/carving10.jpg", title: "Grumpy" },
+  { src: "images/mixed1.jpg", title: "Eye in the Sky" },
+  { src: "images/mixed2.jpg", title: "Cosmic Serpent" },
+  { src: "images/mixed3.jpg", title: "Segment of Infinity (for Charlotte)" },
+  { src: "images/mixed4.jpg", title: "XIII" },
+  { src: "images/mixed5.jpg", title: "XIII (black light)" },
+  { src: "images/mixed6.jpg", title: "A.A." },
+  { src: "images/mixed7.jpg", title: "Untitled" },
+  { src: "images/mixed8.jpg", title: "Oh Canadada! (with Mel Phillips)" },
+  { src: "images/mixed9.jpg", title: "Royal Portrait (with M.P. and C.B.)" },
+  { src: "images/mixed10.jpg", title: "Self-Portait in Microplastic" },
+  { src: "images/mixed11.jpg", title: "Abracadabra" },
+  { src: "images/mixed12.jpg", title: "Untitled" },
+  { src: "images/mixed13.jpg", title: "Green Man" },
+  { src: "images/mixed14.jpg", title: "Frank" },
+  { src: "images/mixed15.jpg", title: "Stalker" },
+  { src: "images/mixed17.jpg", title: "Modern Man" },
+  { src: "images/mixed18.jpg", title: "Triangles" },
+  { src: "images/mixed19.jpg", title: "Fuck Your Downward Spiral" },
+  { src: "images/mixed20.jpg", title: "Traffic in Neon" },
+  { src: "images/mixed21.jpg", title: "Childhood Monster" },
+  { src: "images/mixed22.jpg", title: "Light & Void" },
+  { src: "images/paint1.jpg", title: "Sol" },
+  { src: "images/paint2.jpg", title: "Lozenges" },
+  { src: "images/paint3.jpg", title: "Third Eye" },
+  { src: "images/paint4.jpg", title: "Arabesque" },
+  { src: "images/paint5.jpg", title: "Radiowaves" },
+  { src: "images/paint6.jpg", title: "Ripples" },
+  { src: "images/paint7.jpg", title: "Infinity Repeating Itself" },
+  { src: "images/paint8.jpg", title: "For the Nine Muses" },
+  { src: "images/paint9.jpg", title: "Yggdrasil" },
+  { src: "images/paint10.jpg", title: "A Spell for R-" },
+  { src: "images/paint11.jpg", title: "Untitled (with Mel Phillips)" },
+  { src: "images/paint12.jpg", title: "Untitled" },
+  { src: "images/paint14.jpg", title: "Untitled" },
+  { src: "images/paint15.jpg", title: "Look Me in the Eyes (for T-)" },
+  { src: "images/paint16.jpg", title: "Butterfly Dreams" },
+  { src: "images/paint17.jpg", title: "Untitled" },
+  { src: "images/paint18.jpg", title: "Scratches" },
+  { src: "images/paint19.jpg", title: "Vapours" },
+  { src: "images/paint20.jpg", title: "Traffic" },
+  { src: "images/paint21.jpg", title: "..." },
+  { src: "images/paint22.jpg", title: "..." },
+  { src: "images/paint23.jpg", title: "..." },
+  { src: "images/paint24.jpg", title: "..." },
+  { src: "images/paint25.jpg", title: "..." },
+  { src: "images/paint26.jpg", title: "For Murial" },
+  { src: "images/paint29.jpg", title: "Untitled" },
+  { src: "images/paint30.jpg", title: "Am I Just A Blissed Out Mental Patient?" },
+  { src: "images/paint31.jpg", title: "Segment of Infinity" },
+  { src: "images/paint32.jpg", title: "Segment of Infinity" },
+  { src: "images/paint35.jpg", title: "Sun Goddess" },
+  { src: "images/paint36.jpg", title: "Autumnal" },
+  { src: "images/paint37.jpg", title: "Untitled" },
+  { src: "images/paint38.jpg", title: "Untitled" },
+  { src: "images/paint39.jpg", title: "Page from a Lost Manuscript" },
+  { src: "images/paint40.jpg", title: "..." },
+  { src: "images/paint41.jpg", title: "Spring" },
+  { src: "images/paint42.jpg", title: "Ellie" },
+  { src: "images/paint43.jpg", title: "For D-" },
+  { src: "images/palimpsest1.jpg", title: "Palimpsest 1" },
+  { src: "images/palimpsest2.jpg", title: "Palimpsest 2" },
+  { src: "images/palimpsest3.jpg", title: "Palimpsest 3" },
+  { src: "images/palimpsest4.jpg", title: "Palimpsest 4" },
+  { src: "images/pen1.jpg", title: "Light & Void (Pen+Ink)" },
+  { src: "images/photo1.jpg", title: "Brutalia" },
+  { src: "images/photo2.jpg", title: "Untitled" },
+  { src: "images/photo3.jpg", title: "Untitled" },
+  { src: "images/photo6.jpg", title: "Bird on a Wire" },
+  { src: "images/photo7.jpg", title: "Welcome" },
+  { src: "images/photo8.jpg", title: "Stark" },
+  { src: "images/photo9.jpg", title: "The Weirding" },
+  { src: "images/photo10.jpg", title: "Birch Trees" },
+  { src: "images/photo11.jpg", title: "Woodland" },
+  { src: "images/photo12.jpg", title: "Cross" },
+];
+
+
+      let currentIndex = null;
+
+      function getRandomIndex() {
+        let newIndex;
+        do {
+          newIndex = Math.floor(Math.random() * artworks.length);
+        } while (newIndex === currentIndex);
+        return newIndex;
+      }
+
+      function showRandom() {
+        currentIndex = getRandomIndex();
+        const artwork = artworks[currentIndex];
+        document.getElementById("gallery-image").src = artwork.src;
+        document.getElementById("gallery-title").textContent = artwork.title;
+      }
+
+      document.getElementById("gallery-image").addEventListener("click", showRandom);
+
+      showRandom();
+    </script>
+
+  </body>
+</html>
